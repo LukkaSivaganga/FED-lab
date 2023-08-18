@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>storing data with HTML5 local storage</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+        </script>
+        <script>
+            if(localStorage)
+            {
+                $(document).ready(function() {
+                    $(".save").click(function() {
+                        var firstName=$("#firstName").val();
+                        localStorage.setItem("first_name",firstName);
+                        alert("your first name is saved" );
+                    });
+                    $(".access").click(function(){
+                        alert("Hi"+" "+localStorage.getItem("first_name"))
+                    });
+                });
+            }
+            else
+            {
+                alert("sorry,your browser not supported");
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <label>Firstname:<input type="text" id="firstName"></label><br>
+            <button type="button" class="save">saveName</button><br>
+            <button type="button" class="access">GetName</button>
+        </form>
+    </body>
+</html>
