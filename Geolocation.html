@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>demonstration of Geolocation</title>
+    </head>
+    <body>
+        <button onClick="getLocation()">Get location</button>
+        <p id="mslocation"></p>
+        <script type="text/javascript">
+            var msg=document.getElementById("mslocation");
+            function success(position){
+                const crd=position.coords;
+                msg.innerHTML="Latitude:" +crd.latitude+"<br>Longitude:" +crd.longitutde +"<br>more or less" +crd.accuracy +"meters";
+            }
+            function getLocation()
+            {
+                if(navigator.geolocation)
+                {
+                    navigator.geolocation.getCurrentPosition(success);
+                }
+                else
+                {
+                    msg.innerHTML="Geolocation is not supported by this browser";
+                }
+            }
+        </script>
+    </body>
+</html>
